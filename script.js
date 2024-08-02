@@ -1,7 +1,7 @@
-console.log(getComputerChoice());
+console.log(getHumanChoice());
 
 function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 3);
+    const choice = Math.floor(Math.random() * 3);
 
     if (choice === 0) {
         return 'rock';
@@ -9,5 +9,21 @@ function getComputerChoice() {
         return 'paper';
     } else {
         return 'scissors';
+    }
+}
+
+function getHumanChoice() {
+    let choice = prompt("rock, paper or scissors?")
+
+    while (true) {
+        switch (choice) {
+            case 'rock':
+            case 'paper':
+            case 'scissors':
+                return choice;
+            default:
+                choice = prompt("Invalid input. rock, paper or scissors?")
+                break;
+        }
     }
 }
