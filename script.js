@@ -1,4 +1,11 @@
-console.log(getHumanChoice());
+let humanScore = 0;
+let computerScore = 0;
+let games = 0;
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
 function getComputerChoice() {
     const choice = Math.floor(Math.random() * 3);
@@ -26,4 +33,23 @@ function getHumanChoice() {
                 break;
         }
     }
+}
+
+function playRound (humanChoice, computerChoice) {
+
+    humanChoice = humanChoice.toLowerCase();
+
+    if (computerChoice === humanChoice) {
+        console.log(`Your ${humanChoice} ties with computer's ${computerChoice}`);
+    } else if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
+    (humanChoice === 'scissors' && computerChoice === 'paper') ||
+    (humanChoice === 'paper' && computerChoice === 'rock')) {
+        console.log(`Your ${humanChoice} beats computer's ${computerChoice}`);
+        humanScore++;
+    } else {
+        console.log(`Your ${humanChoice} lost to computer's ${computerChoice}`);
+        computerScore++;
+    }
+
+    games++;
 }
