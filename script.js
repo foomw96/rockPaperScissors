@@ -3,7 +3,7 @@ let computerScore = 0;
 let games = 0;
 
 const buttons = document.querySelectorAll('button');
-
+const movelog = document.querySelector('.movelog')
 // add click event listener to each button
 // playRound will be called on each click
 buttons.forEach(button => {
@@ -28,15 +28,24 @@ function getComputerChoice() {
 
 function playRound (humanChoice, computerChoice) {
 
+    games++;
+    
+    const content = document.createElement('div');
+    content.textContent = `Game #${games}: `
+
     if (computerChoice === humanChoice) {
-        console.log(`Your ${humanChoice} ties with computer's ${computerChoice}`);
+        content.textContent += `Your ${humanChoice} ties with computer's ${computerChoice}`;
     } else if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
     (humanChoice === 'scissors' && computerChoice === 'paper') ||
     (humanChoice === 'paper' && computerChoice === 'rock')) {
-        console.log(`Your ${humanChoice} beats computer's ${computerChoice}`);
+        content.textContent += `Your ${humanChoice} beats computer's ${computerChoice}`;
         humanScore++;
     } else {
-        console.log(`Your ${humanChoice} lost to computer's ${computerChoice}`);
+        content.textContent += `Your ${humanChoice} lost to computer's ${computerChoice}`;
         computerScore++;
     }
+
+    movelog.appendChild(content);
+    // update the scoreboard
+    // if games = 5, declare a winner with alert
 }
