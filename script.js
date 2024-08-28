@@ -2,6 +2,17 @@ let humanScore = 0;
 let computerScore = 0;
 let games = 0;
 
+const buttons = document.querySelectorAll('button');
+
+// add click event listener to each button
+// playRound will be called on each click
+buttons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        playRound(event.target.id, getComputerChoice()); 
+        // event.target.id is the human choice.
+        // getComputerChoice() to generate computer choice
+    })
+});
 
 function getComputerChoice() {
     const choice = Math.floor(Math.random() * 3);
@@ -15,25 +26,7 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("rock, paper or scissors?")
-
-    while (true) {
-        switch (choice) {
-            case 'rock':
-            case 'paper':
-            case 'scissors':
-                return choice;
-            default:
-                choice = prompt("Invalid input. rock, paper or scissors?")
-                break;
-        }
-    }
-}
-
 function playRound (humanChoice, computerChoice) {
-
-    humanChoice = humanChoice.toLowerCase();
 
     if (computerChoice === humanChoice) {
         console.log(`Your ${humanChoice} ties with computer's ${computerChoice}`);
