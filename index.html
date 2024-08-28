@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>✊✋✌️</title>
 </head>
 <body>
 
-    <div>
-        ✊✋✌️
-        Play in the console
+    <div class="container">
+        
+        <h1>Play Rock Paper Scissors against the computer!</h1>
+        
+        <div class="buttonGroup">
+            <button id="rock">✊</button>
+            <button id="paper">✋</button>
+            <button id="scissors">✌️</button>
+        </div>
+
+        <div class="Scoreboard">
+            <h2>Current Score</h2>
+            <div class="scores">
+                <div>COMPUTER: <span id="comScore">0</span></div>
+                <div>YOU: <span id="yourScore">0</span></div>
+            </div>
+        </div>
+
+        <div class="movelog">
+            <h2>Move log</h2>
+        </div>
     </div>
 
     <script src="./script.js"></script>

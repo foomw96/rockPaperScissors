@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
+
+button {
+    width: 2em;
+    height: 2em;
+    font-size: xx-large;
+}
+
+.Scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+
+    border: 1px solid black;
+    padding: 2em;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    gap: 2em;
+}
+
+h2 {
+    margin: 0;
+}
+
+.movelog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}

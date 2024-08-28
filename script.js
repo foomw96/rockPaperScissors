@@ -2,7 +2,6 @@ let humanScore = 0;
 let computerScore = 0;
 let games = 0;
 
-playGame();
 
 function getComputerChoice() {
     const choice = Math.floor(Math.random() * 3);
@@ -46,25 +45,5 @@ function playRound (humanChoice, computerChoice) {
     } else {
         console.log(`Your ${humanChoice} lost to computer's ${computerChoice}`);
         computerScore++;
-    }
-}
-
-function playGame() {
-
-    while (games < 5) {
-        games++;
-        console.log(`Game #${games}. Fight!`);
-
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        
-        console.log(`Computer: ${computerScore}, You: ${humanScore}`);
-    }
-
-    if (humanScore > computerScore) {
-        console.log("YOU WON!");
-    } else {
-        console.log("You lost...");
     }
 }
