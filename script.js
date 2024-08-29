@@ -3,7 +3,10 @@ let computerScore = 0;
 let games = 0;
 
 const buttons = document.querySelectorAll('button');
-const movelog = document.querySelector('.movelog')
+const movelog = document.querySelector('.movelog');
+const comScoreboard = document.querySelector('#comScore');
+const humanScoreboard = document.querySelector('#yourScore');
+
 // add click event listener to each button
 // playRound will be called on each click
 buttons.forEach(button => {
@@ -46,6 +49,20 @@ function playRound (humanChoice, computerChoice) {
     }
 
     movelog.appendChild(content);
-    // update the scoreboard
-    // if games = 5, declare a winner with alert
+    comScoreboard.textContent = computerScore;
+    humanScoreboard.textContent = humanScore;
+    
+    if (games == 5) {
+        setTimeout(() => {
+            if (humanScore == computerScore) {
+                alert("It's a tie!");
+            } else if (humanScore < computerScore) {
+                alert("You lose!");
+            } else {
+                alert("You win!");
+            }
+        }, 0);
+
+        location.reload();
+    }
 }
